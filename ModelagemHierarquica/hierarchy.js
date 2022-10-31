@@ -478,7 +478,7 @@
    // clear the framebuffer
    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BIT);
 
-  //  modelView = rotator.getViewMatrix();
+   modelView = rotator.getViewMatrix();
   //  gl.uniformMatrix4fv(uModelView, false, modelView);
 
   //  gl.uniformMatrix3fv(uModelView, false, normalMatrixLoc);
@@ -535,6 +535,8 @@
    if (!s.isEmpty()) {
      console.log("Warning: pops do not match pushes");
    }
+
+   rotator.setViewMatrix(torsoMatrix);
    
  }
  /**
@@ -600,8 +602,8 @@
      requestAnimationFrame(animate);
    };
 
-  //  rotator = new SimpleRotator(canvas, draw);
-  //  rotator.setView([0, 0, 1], [0, 1, 0], 40);
+   rotator = new SimpleRotator(canvas, draw);
+   rotator.setView([0, 0, 1], [0, 1, 0], 40);
    // start drawing!
    animate();
  });
